@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guía de instalación y uso — Monitor Páginas Web</title>
+<meta name="description" content="Cómo instalar y usar Monitor Páginas Web en Windows.">
+<style>
+  :root {
+    --bg: #f6f8fb; --card: #ffffff; --text: #1f2937; --muted: #4b5563; --brand: #0b2a5b;
+    --accent: #1d5fd1; --line: #e2e8f0; --note-bg: #e7f1fb; --note-line: #b6d4f5;
+    --warn-bg: #fff6e0; --warn-line: #f0d48a;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0f1623; --card: #172033; --text: #e5e9f0; --muted: #a9b4c4; --brand: #9cc2ff;
+      --accent: #6ea8ff; --line: #2a3650; --note-bg: #14263f; --note-line: #2b4a78;
+      --warn-bg: #3a2f12; --warn-line: #6b5520;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+         font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 24px 16px 64px; }
+  h1 { color: var(--brand); font-size: 1.9rem; line-height: 1.2; margin: 8px 0 8px; }
+  h2 { color: var(--brand); font-size: 1.35rem; margin: 0 0 8px; }
+  h3 { font-size: 1.05rem; margin: 18px 0 4px; }
+  p { margin: 8px 0; }
+  .lead { color: var(--muted); font-size: 1.05rem; }
+  section { background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+            padding: 18px 20px; margin: 16px 0; }
+  ol, ul { padding-left: 1.3rem; margin: 8px 0; }
+  li { margin: 6px 0; }
+  a { color: var(--accent); }
+  .btn { display: inline-block; background: var(--accent); color: #fff !important; text-decoration: none;
+         font-weight: 700; padding: 12px 20px; border-radius: 10px; margin: 8px 0; }
+  .btn:hover { filter: brightness(1.08); }
+  .small { color: var(--muted); font-size: .92rem; }
+  .note, .warn { border-radius: 10px; padding: 10px 14px; margin: 12px 0; font-size: .97rem; }
+  .note { background: var(--note-bg); border: 1px solid var(--note-line); }
+  .warn { background: var(--warn-bg); border: 1px solid var(--warn-line); }
+  table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: .97rem; }
+  th, td { text-align: left; vertical-align: top; padding: 8px 10px; border-bottom: 1px solid var(--line); }
+  th { color: var(--muted); font-weight: 600; width: 34%; }
+  code { background: var(--note-bg); padding: 1px 6px; border-radius: 6px; font-size: .92em; }
+  .dot { display: inline-block; width: .8em; height: .8em; border-radius: 50%; margin-right: 6px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Monitor Páginas Web</h1>
+  <p class="lead">Un programa para Windows que vigila sus sitios web desde su computador y le avisa cuando uno se cae o vuelve a funcionar.</p>
+
+  <section id="instalar">
+    <h2>1. Instalar</h2>
+    <p>Se instala en menos de 2 minutos, sin permisos de administrador y sin instalar nada más.</p>
+    <p><a class="btn" id="descarga" href="https://github.com/Andresvillegas06/monitor-paginas-web-releases/releases/latest">Descargar el instalador</a><br>
+       <span class="small" id="version-txt">Archivo para Windows 10 u 11 (unos 51 MB).</span></p>
+    <ol>
+      <li>Pulse el botón de arriba. Se descarga un archivo que termina en <code>.exe</code>.</li>
+      <li>Ábralo con doble clic.</li>
+      <li>Si Windows muestra <strong>«Windows protegió su PC»</strong>, pulse <strong>Más información</strong> y luego <strong>Ejecutar de todas formas</strong>. Sale así porque el instalador todavía no tiene firma digital; es normal.</li>
+      <li>Siga el asistente con <strong>Siguiente</strong>. Deje marcado <strong>Crear un acceso directo en el escritorio</strong>. Si quiere que arranque solo al encender el computador, marque <strong>Iniciar con Windows</strong>.</li>
+      <li>Al terminar, pulse <strong>Abrir Monitor Páginas Web</strong>.</li>
+    </ol>
+    <p class="small">La primera vez la aplicación avisa que, al cerrar la ventana con la X, sigue vigilando desde la bandeja, junto al reloj.</p>
+  </section>
+
+  <section id="sitios">
+    <h2>2. Agregar los sitios que se vigilan</h2>
+    <ol>
+      <li>En <strong>Inicio</strong>, pulse <strong>Agregar sitio web</strong>.</li>
+      <li>Escriba el <strong>nombre</strong> (como usted lo reconocerá) y la <strong>dirección</strong> completa, con <code>https://</code>.</li>
+      <li>Deje lo demás como viene: revisa cada 30 segundos y espera 10 segundos la respuesta. Pulse <strong>Guardar</strong>.</li>
+    </ol>
+    <p>Para cambiar un sitio, haga doble clic en su fila. En esa fila también puede ver estadísticas, pausarlo o eliminarlo. Se pueden vigilar hasta 50 sitios.</p>
+    <p>Opcional: en <strong>Palabra clave</strong> escriba un texto que siempre debe aparecer en la página. Si la página responde pero ese texto falta (página en blanco o en mantenimiento), el sitio pasa a Advertencia.</p>
+  </section>
+
+  <section id="estados">
+    <h2>3. Cómo leer el estado de cada sitio</h2>
+    <p>El estado siempre se muestra con texto, ícono y color.</p>
+    <table>
+      <tr><th><span class="dot" style="background:#2e9e4f"></span>Operativo</th><td>Responde bien y rápido.</td></tr>
+      <tr><th><span class="dot" style="background:#e0b400"></span>Lento</th><td>Responde, pero tarda más de 3 segundos.</td></tr>
+      <tr><th><span class="dot" style="background:#e8812a"></span>Advertencia</th><td>Respuesta rara (por ejemplo, un bloqueo del firewall), falta la palabra clave o el certificado SSL está por vencer. <strong>No es una caída.</strong></td></tr>
+      <tr><th><span class="dot" style="background:#d63a2f"></span>Caído</th><td>Falló dos veces seguidas: caída confirmada.</td></tr>
+      <tr><th><span class="dot" style="background:#8a94a3"></span>Pausado</th><td>Usted lo pausó.</td></tr>
+      <tr><th><span class="dot" style="background:#5b6573"></span>Sin conexión local</th><td>Su computador no tiene internet; en ese caso no se cuentan caídas.</td></tr>
+    </table>
+    <p>Para evitar falsas alarmas, la primera falla se reintenta a los 10 segundos. Solo si falla de nuevo, y su internet está bien, se declara la caída.</p>
+  </section>
+
+  <section id="avisos">
+    <h2>4. Avisos</h2>
+    <p>La aplicación avisa solo cuando algo cambia, no en cada revisión:</p>
+    <ul>
+      <li>un sitio se cae (caída confirmada);</li>
+      <li>un sitio se recupera, con lo que duró la caída;</li>
+      <li>una advertencia que persiste, o un certificado por vencer;</li>
+      <li>su computador pierde o recupera internet.</li>
+    </ul>
+    <p>Si una caída sigue abierta, repite el aviso cada 30 minutos (se cambia en <strong>Configuración</strong>; 0 = nunca). Si 3 o más sitios cambian a la vez, llega un solo aviso resumen.</p>
+    <p>Los avisos salen como notificación de Windows, con sonido. En <strong>Notificaciones</strong> puede ver el historial y probar el sonido y la notificación. En <strong>Configuración</strong> define el horario de <strong>No molestar</strong> (por defecto de 22:00 a 06:00), el volumen y cómo se ven los avisos.</p>
+    <div class="note">Si Windows tiene activado el «Asistente de concentración», no mostrará las notificaciones. Apáguelo o elija en Configuración la ventanilla de la aplicación.</div>
+  </section>
+
+  <section id="diario">
+    <h2>5. Uso diario</h2>
+    <ul>
+      <li><strong>El ícono junto al reloj</strong> cambia de color: verde (todo bien), amarillo o naranja (advertencias o lentitud), rojo (algún sitio caído) y gris (sin internet o todo pausado). Doble clic abre la ventana.</li>
+      <li><strong>La X no cierra el programa:</strong> lo manda a la bandeja y <strong>sigue vigilando</strong>. Para cerrarlo de verdad, clic derecho en el ícono y <strong>Salir</strong>.</li>
+      <li><strong>Solo puede haber una copia abierta.</strong> Si lo abre de nuevo, trae al frente la que ya está.</li>
+      <li><strong>Iniciar con Windows:</strong> se activa en Configuración. Al encender el computador arranca en la bandeja, sin abrir la ventana.</li>
+      <li><strong>Verificar todo</strong> (en Inicio) revisa todos los sitios ahora mismo. <strong>Pausar todo</strong> detiene las revisiones hasta que usted las reanude.</li>
+    </ul>
+  </section>
+
+  <section id="reportes">
+    <h2>6. Reportes, estadísticas y actualizar</h2>
+    <ul>
+      <li><strong>Estadísticas:</strong> elija un sitio y un periodo para ver disponibilidad, tiempos de respuesta, incidentes y el historial de cada revisión. Donde el computador estuvo apagado o suspendido, el gráfico deja un hueco: no se midió nada y no se cuenta como caída.</li>
+      <li><strong>Reportes (PDF):</strong> elija el sitio (o todos) y el periodo, y pulse <strong>Generar reporte PDF</strong>. Se guardan en <code>Documentos\MonitorPaginasWeb\Reportes</code>.</li>
+      <li><strong>Incidentes:</strong> lista de todas las caídas con inicio, fin, duración y causa.</li>
+      <li><strong>Actualizar la aplicación:</strong> al abrirla, si hay una versión nueva, aparece una franja azul en <strong>Inicio</strong>. Púlsela (o vaya a <strong>Acerca de → Buscar actualizaciones</strong>) y luego <strong>Descargar e instalar</strong>. La aplicación verifica el archivo, se cierra, se actualiza y se vuelve a abrir sola. Su configuración y su historial se conservan. Nunca se actualiza sin que usted lo pida.</li>
+    </ul>
+  </section>
+
+  <section id="saber">
+    <h2>7. Lo que debe saber</h2>
+    <div class="warn"><strong>La aplicación vigila desde su computador.</strong> Si el equipo está apagado, suspendido, sin internet, o la aplicación está cerrada con <strong>Salir</strong>, no se revisa nada y no llegan avisos. Esos periodos no se cuentan en las estadísticas.</div>
+    <table>
+      <tr><th>No llegó un aviso de caída</th><td>Revise que la aplicación esté abierta (ícono en la bandeja), que el equipo tenga internet y que el sitio tenga activado <em>Notificar caídas</em>.</td></tr>
+      <tr><th>Un sitio sale en Advertencia, no Caído</th><td>Es una respuesta rara (por ejemplo, un firewall que bloquea las revisiones), no una caída real.</td></tr>
+      <tr><th>No encuentro la ventana</th><td>Doble clic en el ícono de la bandeja, o abra el acceso directo del escritorio.</td></tr>
+      <tr><th>Windows no deja abrir el instalador</th><td>Pulse <strong>Más información</strong> y luego <strong>Ejecutar de todas formas</strong>.</td></tr>
+    </table>
+    <p class="small">Privacidad: el programa no recopila datos personales ni envía telemetría. Solo se conecta a los sitios que usted configura.</p>
+  </section>
+</main>
+<script>
+  // Busca el instalador de la última versión para que el botón no quede desactualizado.
+  (function () {
+    var btn = document.getElementById("descarga"), txt = document.getElementById("version-txt");
+    fetch("https://api.github.com/repos/Andresvillegas06/monitor-paginas-web-releases/releases/latest")
+      .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+      .then(function (d) {
+        var a = (d.assets || []).filter(function (x) { return /Compartida.*\.exe$/i.test(x.name); })[0];
+        if (!a) { return; }
+        btn.href = a.browser_download_url;
+        btn.textContent = "Descargar el instalador (versión " + String(d.tag_name).replace(/^v/i, "") + ")";
+        txt.textContent = "Archivo para Windows 10 u 11 (unos " + Math.round(a.size / 1048576) + " MB).";
+      })
+      .catch(function () { /* se queda el enlace a la página de descargas */ });
+  })();
+</script>
+</body>
+</html>
